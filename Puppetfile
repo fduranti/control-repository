@@ -49,5 +49,3 @@ mod 'ravendb',
 mod 'nservicebusservicecontrol',
     git: 'https://github.com/TraGicCode/tragiccode-nservicebusservicecontrol',
     ref: 'master'
-mod 'profile_jenkins',
-    :git => 'https://github.com/velocity303/pov-usecase-jenkins.git'
