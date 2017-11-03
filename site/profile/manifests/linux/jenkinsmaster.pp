@@ -45,6 +45,7 @@ EOF
 
   class { 'jenkins':
     version => 'latest',
+    cli_remoting_free => true,
     lts     => true,
   }
 
