@@ -1,15 +1,47 @@
 class role::jenkins_master {
   include git
 
+    file { '/var/lib/jenkins/init.groovy.d':
+    ensure => directory,
+    owner  => 'jenkins',
+    group  => 'jenkins',
+    #mode   => '0755',
+  }
+
+  $content = @(EOF)
+    #!groovy
+
+    import jenkins.model.*
+    import hudson.security.*
+
+    def instance = Jenkins.getInstance()
+
+    println "--> creating local user 'admin'"
+
+    def hudsonRealm = new HudsonPrivateSecurityRealm(false)
+    hudsonRealm.createAccount('admin','admin')
+    instance.setSecurityRealm(hudsonRealm)
+
+    def strategy = new FullControlOnceLoggedInAuthorizationStrategy()
+    strategy.setAllowAnonymousRead(false)
+    instance.setAuthorizationStrategy(strategy)
+    instance.save()
+EOF
+
+  file { '/var/lib/jenkins/init.groovy.d/basic-security.groovy':
+    ensure  => file,
+    content => $content,
+    owner   => 'jenkins',
+    group   => 'jenkins',
+    mode    => '0755',
+  }
+
   class { 'jenkins':
     version            => 'latest',
     lts                => true,
     configure_firewall => true,
   }
-    jenkins::user { 'johndoe':
-    email    => 'jdoe@example.com',
-    password => 'changeme',
-  }
+
 
   # Disable Unlock Jenkins page
   file { '/var/lib/jenkins/jenkins.install.InstallUtil.lastExecVersion':
