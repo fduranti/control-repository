@@ -80,9 +80,9 @@ class role::jenkins_master {
   jenkins::plugin { 'git-server': }
   jenkins::plugin { 'branch-api': }
   jenkins::plugin { 'pipeline-graph-analysis': }
-  jenkins::plugin { 'credentials': 
-    version => '2.1.11',
-  }
+  # jenkins::plugin { 'credentials': 
+  #   version => '2.1.11',
+  # }
   jenkins::plugin { 'pipeline-model-definition': }
   jenkins::plugin { 'credentials-binding': }
   jenkins::plugin { 'docker-workflow': }
