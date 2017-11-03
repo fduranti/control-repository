@@ -36,9 +36,13 @@ mod 'puppetlabs/firewall', '1.8.1'
 mod 'puppetlabs/git', '0.5.0'
 
 # Discovered elements from existing Puppetfile
+# mod 'jenkins',
+#     git: 'https://github.com/jenkinsci/puppet-jenkins',
+#     commit: '23df7764d58aed80b573621b102f82a702217a7a'
+
 mod 'jenkins',
-    git: 'https://github.com/jenkinsci/puppet-jenkins',
-    commit: '23df7764d58aed80b573621b102f82a702217a7a'
+    :git => 'https://github.com/jenkinsci/puppet-jenkins.git',
+    :ref => '1342f52be76206692e9b760f9437af35402e831e'
 mod 'ravendb',
     git: 'https://github.com/tragiccode/tragiccode-ravendb',
     ref: 'master'
