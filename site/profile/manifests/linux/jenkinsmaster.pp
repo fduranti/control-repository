@@ -48,6 +48,10 @@ EOF
     lts     => true,
   }
 
+  class { 'jenkins::security':
+		security_model => 'full_control',
+	}
+
 # service { 'jenkins':
 #   ensure     => running,
 #   enable     => true,

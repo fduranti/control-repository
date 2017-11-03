@@ -207,8 +207,8 @@ Vagrant.configure('2') do |config|
     POWERSHELL
   end
 
-  config.vm.define 'jenkinsmaster-001' do |node|
-    node.vm.hostname = 'jenkinsmaster-001.local'
+  config.vm.define 'jenkinsmaster-004' do |node|
+    node.vm.hostname = 'jenkinsmaster-004.local'
     node.vm.network :private_network, :ip => '10.20.1.12'
     node.vm.box = 'puppetlabs/ubuntu-16.04-64-nocm'
     node.vm.provider "virtualbox" do |v|
