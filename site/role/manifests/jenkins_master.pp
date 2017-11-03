@@ -6,6 +6,10 @@ class role::jenkins_master {
     lts                => true,
     configure_firewall => true,
   }
+    jenkins::user { 'johndoe':
+    email    => 'jdoe@example.com',
+    password => 'changeme',
+  }
 
   # Disable Unlock Jenkins page
   file { '/var/lib/jenkins/jenkins.install.InstallUtil.lastExecVersion':
