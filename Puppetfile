@@ -31,6 +31,10 @@ mod 'puppetlabs/wsus_client', '1.0.3'
 mod 'stahnma/epel', '1.3.0'
 mod 'golja/gnupg', '1.2.3'
 
+mod 'puppetlabs/apache', '1.11.0'
+mod 'puppetlabs/firewall', '1.8.1'
+mod 'puppetlabs/git', '0.5.0'
+
 # Discovered elements from existing Puppetfile
 mod 'jenkins',
     git: 'https://github.com/jenkinsci/puppet-jenkins',
@@ -41,3 +45,5 @@ mod 'ravendb',
 mod 'nservicebusservicecontrol',
     git: 'https://github.com/TraGicCode/tragiccode-nservicebusservicecontrol',
     ref: 'master'
+mod 'profile_jenkins',
+    :git => 'https://github.com/velocity303/pov-usecase-jenkins.git'
